@@ -1,0 +1,56 @@
+.theory {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 55px 25px 20px;
+    font-family: "Muller","Arial",sans-serif;;
+}
+
+.theory__title {
+    margin: 0 0 15px;
+    font-size: 36px;
+    line-height: 30px;
+    font-family: inherit;
+}
+
+.theory__content {
+    padding-top: 1px;
+}
+
+.theory__content h3 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.theory__content p {
+    margin: 0 0 25px;
+    font-size: 16px;
+    line-height: 25px;
+    font-family: inherit;
+}
+
+.theory__content pre {
+    display: block;
+    margin: 20px 0 20px -15px;
+    width: calc(100% + 30px);
+    padding: 15px;
+    line-height: 1.6;
+    border: 0;
+    background-color: #f8f8f8;
+    font-size: 1em;
+    font-family: "Ubuntu Mono","Monaco","Consolas","Courier New",monospace;
+    white-space: pre-wrap;
+    color: inherit;
+}
+
+pre code {
+    word-break: break-word;
+    padding: 0;
+    font-size: inherit;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    white-space: pre-wrap;
+    color: inherit;
+    font-family: "Ubuntu Mono","Monaco","Consolas","Courier New",monospace;
+    line-height: 1.6;
+}
