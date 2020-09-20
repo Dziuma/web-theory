@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конспект «Коллекции и свойства элементов»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Конспект «Коллекции и&nbsp;свойства элементов»</h1>
+        <div class="content">
+            <h2>Метод querySelectorAll</h2>
+            <p>Метод <code>querySelectorAll</code> находит все элементы на&nbsp;странице, которые соответствуют
+                указанному селектору, и&nbsp;возвращает <b>коллекцию</b>&nbsp;—&nbsp;набор этих элементов.</p>
+            <pre><code>// Найдёт все абзацы на странице
+let elements = document.querySelectorAll('p');</code></pre>
+            <h2>Коллекция</h2>
+            <p>Коллекцию можно сохранить в&nbsp;переменной. Самый простой способ узнать, какие элементы содержит
+                коллекция,&nbsp;— вывести её&nbsp;в&nbsp;консоль:</p>
+            <pre><code>// Выведет коллекцию в&nbsp;консоль
+console.log(elements);</code></pre>
+            <p>К&nbsp;элементу коллекции можно обращаться по&nbsp;индексу. <b>Индекс</b>&nbsp;— это порядковый номер
+                элемента в&nbsp;коллекции. Отсчёт начинается с&nbsp;нуля, поэтому у&nbsp;первого элемента индекс 0,
+                а&nbsp;у&nbsp;второго&nbsp;— 1. Индексы пишут в&nbsp;квадратных скобках после имени коллекции:</p>
+            <pre><code>console.log(elements[0]); // Выведет первый элемент коллекции
+console.log(elements[1]); // Выведет второй элемент коллекции</code></pre>
+            <h2>Data-атрибуты</h2>
+            <p>В&nbsp;HTML можно создавать свои собственные атрибуты. Имена таких атрибутов начинаются с&nbsp;префикса
+                <code class="nowrap">data-</code>, после которого идёт любое выбранное разработчиком слово.</p>
+            <pre><code>&lt;div data-cat-name="Кекс"&gt;</code></pre>
+            <p>Чтобы получить значение data-атрибута в&nbsp;JavaScript, используют свойство <code>dataset</code>, после
+                которого указывают имя атрибута без префикса <code class="nowrap">data-</code>:</p>
+            <pre><code>элемент.dataset.имяАтрибутаБезПрефикса</code></pre>
+            <p>Если имя атрибута состояло из&nbsp;нескольких слов и&nbsp;в&nbsp;нём были дефисы,
+                то&nbsp;в&nbsp;JavaScript его записывают в&nbsp;«верблюжьем» стиле (по-английски <i>camelCase</i>):
+                дефисы убирают, а&nbsp;каждое слово, кроме первого, пишут с&nbsp;большой буквы.</p>
+            <pre><code>let element = document.querySelector('div');
+console.log(element.dataset.catName); // Выведет: Кекс</code></pre>
+            <h2>Цикл for of</h2>
+            <p>Цикл&nbsp;— это конструкция, которая позволяет выполнить код несколько&nbsp;раз. Цикл <code
+                    class="nowrap">for of</code> выполнит код из&nbsp;фигурных скобок столько раз, сколько элементов
+                содержится в&nbsp;коллекции, указанной в&nbsp;круглых скобках. Каждое такое повторение называется
+                <i>итерацией</i>.</p>
+            <pre><code>for (переменная of коллекция) {
+// Код, который нужно выполнить несколько раз
+}</code></pre>
+            <p>При создании цикла в&nbsp;круглых скобках также нужно указать переменную. Обычно для этого объявляют
+                новую переменную и&nbsp;используют её&nbsp;только внутри цикла. На&nbsp;каждой итерации JavaScript будет
+                автоматически записывать в&nbsp;эту переменную очередной элемент коллекции.</p>
+            <pre><code>let elements = document.querySelectorAll('p'); // Находим все абзацы
+            
+for (let element of elements) {  // Создаём цикл и переменную
+console.log(element);          // Выводим элементы в консоль
+}</code></pre>
+            <p>Цикл <code class="nowrap">for of</code> завершится, когда в&nbsp;коллекции закончатся элементы. После
+                этого JavaScript перейдёт к&nbsp;инструкциям, которые идут после цикла.</p>
+            <h2>Обработчик событий oninput</h2>
+            <p>Обработчик событий <code>oninput</code> (в&nbsp;переводе с&nbsp;английского это означает «при вводе»)
+                позволяет выполнять инструкции из&nbsp;фигурных скобок каждый раз, когда меняется значение в&nbsp;поле
+                ввода. Изменением считается и&nbsp;добавление, и&nbsp;удаление символов.</p>
+            <pre><code>// Найдём поле ввода
+let textarea = document.querySelector('textarea');
+
+// Добавим обработчик событий
+textarea.oninput = function () {
+// Выведем данные из поля ввода
+console.log(textarea.value);
+};</code></pre>
+            <h2>Свойство length</h2>
+            <p>Узнать длину строки можно с&nbsp;помощью свойства <code>length</code> (по-английски «длина»). Значение
+                этого свойства равно числу символов в&nbsp;строке. Символами считаются не&nbsp;только буквы
+                и&nbsp;цифры, но&nbsp;также пробелы и&nbsp;переносы строки.</p>
+            <pre><code>let text = 'Я люблю JavaScript';
+console.log(text.length); // Выведет: 18
+
+let textarea = document.querySelector('textarea');
+console.log(textarea.value); // Выведет: Кекс
+console.log(textarea.value.length); // Выведет: 4</code></pre>
+            <h2>Оператор сравнения &gt;</h2>
+            <p>Оператор сравнения <code>&gt;</code> («больше») сравнивает два числа и&nbsp;возвращает булево значение:
+                <code>true</code>, если левое число больше правого, и&nbsp;<code>false</code> во&nbsp;всех остальных
+                случаях:</p>
+            <pre><code>console.log(3 &gt; 2); // Вернёт: true
+console.log(1 &gt; 2); // Вернёт: false
+console.log(2 &gt; 2); // Вернёт: false</code></pre>
+            <h2>Свойство disabled</h2>
+            <p>Блокировать и&nbsp;разблокировать кнопку в&nbsp;JavaScript можно, присваивая булевы значения свойству
+                <code>disabled</code> (по-английски значит «отключён») этой кнопки. Если присвоено значение
+                <code>true</code>, то&nbsp;кнопка заблокирована, а&nbsp;если <code>false</code>&nbsp;— разблокирована.
+            </p>
+            <pre><code>let button = document.querySelector('button');
+
+// Блокирует кнопку
+button.disabled = true;
+
+// Разблокирует кнопку
+button.disabled = false;</code></pre>
+        </div>
+    </main>
+</body>
+
+</html>
