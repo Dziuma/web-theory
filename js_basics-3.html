@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конспект «Прокрутка и операторы»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Конспект «Прокрутка и&nbsp;операторы»</h1>
+        <div class="content">
+            <div class="course-theory__content-text">
+                <h2>Окно браузера и&nbsp;прокрутка</h2>
+                <p>Окно (или вкладка) браузера в&nbsp;JavaScript обозначается словом <code>window</code>.</p>
+                <h3>Обработчик событий onscroll</h3>
+                <p>Чтобы отследить прокрутку, используем обработчик событий <code>onscroll</code>. Он&nbsp;срабатывает
+                    каждый раз, когда страницу прокручивают, даже если её&nbsp;сдвинули всего на&nbsp;один пиксель.</p>
+                <pre><code>window.onscroll = function () {
+  console.log('Страница прокручена');
+}</code></pre>
+                <h3>Свойство pageYOffset</h3>
+                <p>Свойство <code>pageYOffset</code> окна браузера содержит количество пикселей, на&nbsp;которое
+                    пользователь прокрутил страницу по&nbsp;вертикали:</p>
+                <pre><code>// Если мы на самом верху страницы
+console.log(window.pageYOffset); // Выведет: 0
+
+// Прокрутим страницу на 200px
+console.log(window.pageYOffset); // Выведет: 200</code></pre>
+                <p>Величина горизонтальной прокрутки хранится в&nbsp;свойстве <code>pageXOffset</code>.</p>
+                <h3>Метод scrollTo</h3>
+                <p>Чтобы прокрутить страницу, используем метод <code>scrollTo</code>:</p>
+                <pre><code>window.scrollTo(координата-Х, координата-Y);</code></pre>
+                <p>Координата&nbsp;Х&nbsp;указывает, куда нужно прокрутить страницу по&nbsp;горизонтали,
+                    а&nbsp;координата&nbsp;Y&nbsp;— куда нужно прокрутить страницу по&nbsp;вертикали. Когда браузер
+                    выполнит инструкцию, указанная точка окажется в&nbsp;левом верхнем углу окна. Координаты задаются
+                    в&nbsp;пикселях, но&nbsp;указывать единицы измерения не&nbsp;нужно:</p>
+                <pre><code>// Прокрутит страницу на 100px вправо и на 50px вниз
+window.scrollTo(100, 50);</code></pre>
+                <p>Если прокрутить страницу до&nbsp;указанных координат не&nbsp;получается, браузер прокрутит
+                    её&nbsp;так далеко, как сможет, но&nbsp;увеличивать страницу не&nbsp;будет. Если страница помещается
+                    в&nbsp;окно целиком и&nbsp;полосы прокрутки нет, то&nbsp;браузер проигнорирует эту инструкцию.</p>
+                <h2>Обработчик событий onchange</h2>
+                <p>Обработчик событий <code>onchange</code> срабатывает, когда пользователь выбирает новое значение
+                    из&nbsp;выпадающего списка.</p>
+                <pre><code>// Находим выпадающий список
+let select = document.querySelector('select');
+
+// Добавляем обработчик событий
+select.onchange = function () {
+
+  // Выводим в консоль новое значение
+  console.log(select.value);
+};</code></pre>
+                <p>Обработчик событий <code>onchange</code> можно использовать с&nbsp;разными элементами. Например,
+                    он&nbsp;срабатывает, когда пользователь переключает <a href="/courses/46/run/10">чекбокс</a> или <a
+                        href="/courses/46/run/12">радиокнопки</a>.</p>
+                <h2>Оператор строгого равенства</h2>
+                <p>Чтобы проверить, равны&nbsp;ли два значения, используем оператор строгого равенства.
+                    Он&nbsp;обозначается тремя знаками равно:</p>
+                <pre><code>'a' === 'a'; // Результат: true
+'a' === 'b'; // Результат: false</code></pre>
+                <p>Оператор строгого равенства сравнивает два значения и&nbsp;возвращает <code>true</code>, если они
+                    равны, и&nbsp;<code>false</code>, если они не&nbsp;равны. Значения, которые проверяет оператор,
+                    называют <i>операндами</i>.</p>
+                <h2>Оператор строгого неравенства</h2>
+                <p>Оператор строгого неравенства работает противоположно оператору строгого равенства.
+                    Он&nbsp;сравнивает два значения и&nbsp;возвращает <code>false</code>, если значения равны,
+                    и&nbsp;<code>true</code>,&nbsp;если они не&nbsp;равны.</p>
+                <p>Оператор строгого неравенства&nbsp;обозначается восклицательным знаком и&nbsp;двумя знаками равно:
+                </p>
+                <pre><code>'a' !== 'a'; // Результат: false
+'a' !== 'b'; // Результат: true</code></pre>
+                <p>В&nbsp;JavaScript также есть оператор <i>нестрогого</i> равенства&nbsp;<code class="nowrap">==</code>
+                    и&nbsp;оператор нестрогого неравенства <code class="nowrap">!=</code>. О&nbsp;них мы&nbsp;поговорим
+                    в&nbsp;одной из&nbsp;<a href="/courses/209/run/5">следующих глав</a>.</p>
+                <h2>Оператор логическое И</h2>
+                <p>Чтобы объединить две части условия, используем логическое&nbsp;И. Оно обозначается двойным
+                    амперсандом&nbsp;— <code>&amp;&amp;</code>.</p>
+                <pre><code>if (article.dataset.category !== filter.value &amp;&amp; filter.value !== 'all') {
+  article.classList.add('hidden');
+}</code></pre>
+                <p>Логическое И&nbsp;возвращает <code>true</code>, только если обе части условия возвращают
+                    <code>true</code>. Если хотя&nbsp;бы одна из&nbsp;частей вернёт <code>false</code>, то&nbsp;условие
+                    целиком также будет считаться ложным:</p>
+                <pre><code>true &amp;&amp; true;   // Результат: true
+true &amp;&amp; false;  // Результат: false
+false &amp;&amp; true;  // Результат: false
+false &amp;&amp; false; // Результат: false</code></pre>
+                <h2>Оператор логическое ИЛИ</h2>
+                <p>Логическое&nbsp;ИЛИ&nbsp;обозначается двумя вертикальными чертами и&nbsp;возвращает
+                    <code>true</code>, если хотя&nbsp;бы один из&nbsp;операндов возвращает <code>true</code>:</p>
+                <pre><code>true || true;   // Результат: true
+true || false;  // Результат: true
+false || true;  // Результат: true
+false || false; // Результат: false</code></pre>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
